@@ -1,0 +1,158 @@
+		<div class="container">
+		  <!-- Min and Max Price Selection -->
+		  <div class="col-sm-12 price-form">      
+				<div class="row price-form-row" ng-if="!addListing">
+			    <div class="col-sm-6">
+			      <div class="input-group">
+			        <span class="input-group-addon">Min Price</span>
+			        <select name="minPrice" id="minPrice" ng-model="priceInfo.min" class="form-control">
+			          <option value="100000">$100,000</option>
+			          <option value="200000">$200,000</option>
+			          <option value="300000">$300,000</option>
+			          <option value="400000">$400,000</option>
+			          <option value="500000">$500,000</option>
+			          <option value="600000">$600,000</option>
+			          <option value="700000">$700,000</option>
+			          <option value="800000">$800,000</option>
+			          <option value="900000">$900,000</option>
+			          <option value="1000000">$1,000,000</option>
+			        </select>
+			      </div>          
+			    </div>
+
+			    <div class="col-sm-6">
+			      <div class="input-group">
+			        <span class="input-group-addon">Max Price</span>
+			        <select name="maxPrice" id="maxPrice" ng-model="priceInfo.max" class="form-control">
+			          <option value="100000">$100,000</option>
+			          <option value="200000">$200,000</option>
+			          <option value="300000">$300,000</option>
+			          <option value="400000">$400,000</option>
+			          <option value="500000">$500,000</option>
+			          <option value="600000">$600,000</option>
+			          <option value="700000">$700,000</option>
+			          <option value="800000">$800,000</option>
+			          <option value="900000">$900,000</option>
+			          <option value="1000000">$1,000,000</option>
+			        </select>
+			      </div>          
+			    </div>
+				</div>
+		    <button 
+		    	class="btn btn-primary" 
+		    	ng-click="addListing = !addListing" 
+		    	ng-show="!addListing">Add Listing
+		    </button>
+
+		    <button 
+		    	class="btn btn-danger" 
+		    	ng-click="addListing = !addListing" 
+		    	ng-show="addListing">Close
+		    </button>
+
+		      <div class="listing-form" ng-if="addListing">
+		        <h3>Add a Listing</h3>
+		        
+		        <div class="row listing-form-row">
+		          <div class="col-sm-4">
+		            <div class="input-group">
+		              <span class="input-group-addon">Address</span>
+		              <input 
+		              	type="text" 
+		              	placeholder="Enter the address" 
+		              	class="form-control" 
+		              	ng-model="newListing.address">
+		            </div>
+		          </div>
+
+		          <div class="col-sm-4">
+		            <div class="input-group">
+		              <span class="input-group-addon">Price</span>
+		              <input 
+		              	type="text" 
+		              	placeholder="Enter the price" 
+		              	class="form-control" 
+		              	ng-model="newListing.price">
+		            </div>
+		          </div>
+
+		          <div class="col-sm-4">
+		            <div class="input-group">
+		              <span class="input-group-addon">Property Type</span>
+		              <select 
+		              	type="select" 
+		              	name="propertyType" 
+		              	id="propertyType" 
+		              	class="form-control" 
+		              	ng-model="newListing.type">
+			                <option value="House">House</option>
+			                <option value="Condo">Condo</option>
+			                <option value="Duplex">Duplex</option>
+			                <option value="Apartment">Apartment</option>
+		              </select>
+		            </div>
+		          </div>
+		        </div>
+
+		        <div class="row listing-form-row">
+		          <div class="col-sm-4">
+		            <div class="input-group">
+		              <span class="input-group-addon">Description</span>
+		              <textarea 
+		              	type="text" 
+		              	placeholder="Enter the description" 
+		              	class="form-control" 
+		              	ng-model="newListing.description">
+		              </textarea>
+		            </div>
+		          </div>
+
+		          <div class="col-sm-8">
+
+		            <div class="col-sm-4">
+		              <div class="input-group">
+		                <span class="input-group-addon">Beds</span>
+		                <input 
+		                	type="text" 
+		                	placeholder="Bedrooms" 
+		                	class="form-control" 
+		                	ng-model="newListing.details.bedrooms">
+		              </div>
+		            </div>
+
+		            <div class="col-sm-4">
+		              <div class="input-group">
+		                <span class="input-group-addon">Baths</span>
+		                <input 
+		                	type="text" 
+		                	placeholder="Bathrooms" 
+		                	class="form-control" 
+		                	ng-model="newListing.details.bathrooms">
+		              </div>
+		            </div>
+
+		            <div class="col-sm-4">
+		              <div class="input-group">
+		                <span class="input-group-addon">SqFt</span>
+		                <input 
+		                	type="text" 
+		                	placeholder="Square Footage" 
+		                	class="form-control" 
+		                	ng-model="newListing.details.area">
+		              </div>
+		            </div>
+
+		          </div>
+		        </div>
+						<button 
+							class="btn btn-primary listing-button"
+							ng-click="addCrib(newListing)"
+							ng-show="addListing">Add
+						</button>
+		        <pre>{{newListing | json}}</pre>
+		      </div>
+
+	        
+
+		  </div>
+	  </div>
